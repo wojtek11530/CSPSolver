@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="JavaScriptSettings">
+    <option name="languageLevel" value="ES6" />
+  </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
@@ -14,7 +17,7 @@
   <component name="SbtLocalSettings">
     <option name="projectSyncType">
       <map>
-        <entry key="$PROJECT_DIR$/../../../../Semestr 3/Paradygmaty Programowania/Programy12/Programy/Greeter" value="PREVIEW" />
+        <entry key="D:/../Semestr 3/Paradygmaty Programowania/Programy12/Programy/Greeter" value="PREVIEW" />
       </map>
     </option>
   </component>
