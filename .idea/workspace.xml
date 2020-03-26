@@ -2,84 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b942ea6-dfa7-480a-a26e-907d1374d313" name="Default Changelist" comment="initial commit">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/wojte.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Constraint Satisfaction Problem.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/Jolka/filled0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/Jolka/puzzle0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/Jolka/puzzle1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/Jolka/puzzle2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/Jolka/puzzle3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/Jolka/puzzle4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/Jolka/words0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/Jolka/words1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/Jolka/words2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/Jolka/words3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/Jolka/words4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/Sudoku.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/abstraction/CSPConstraint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/abstraction/CSPSolver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/abstraction/CSPVariable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/abstraction/ConstraintSatisfactoryProblem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/abstraction/ConstraintsNumberOrderSetter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/abstraction/Domain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/abstraction/DomainOrderSetter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/abstraction/DomainSizeOrderSetter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/abstraction/RandomDomainOrderSetter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/abstraction/TheSameDomainOrderSetter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/abstraction/TheSameVariableOrderSetter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/abstraction/VariablesOrderSetter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/crossword/CrosswordIntersectionConstraint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/crossword/CrosswordProblem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/crossword/CrosswordRepeatConstraint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/crossword/CrosswordVariable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/crossword/Direction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/loaders/CrosswordProblemLoader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/loaders/Loader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/loaders/SudokuProblemLoader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/main/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/solvers/BacktrackingAlgorithmStatistics.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/solvers/MultiSolutionBacktrackingAlgorithm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/solvers/OneSolutionBacktrackingAlgorithm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sudoku/SudokuConstraint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sudoku/SudokuProblem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sudoku/SudokuVariable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/META-INF/Constraint Satisfaction Problem.kotlin_module" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/abstraction/CSPConstraint.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/abstraction/CSPSolver.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/abstraction/CSPVariable.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/abstraction/ConstraintSatisfactoryProblem.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/abstraction/ConstraintsNumberOrderSetter$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/abstraction/ConstraintsNumberOrderSetter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/abstraction/Domain.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/abstraction/DomainOrderSetter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/abstraction/DomainSizeOrderSetter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/abstraction/RandomDomainOrderSetter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/abstraction/TheSameDomainOrderSetter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/abstraction/TheSameVariableOrderSetter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/abstraction/VariablesOrderSetter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/crossword/CrosswordIntersectionConstraint.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/crossword/CrosswordProblem.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/crossword/CrosswordRepeatConstraint.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/crossword/CrosswordVariable.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/crossword/Direction.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/loaders/CrosswordProblemLoader.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/loaders/Loader.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/loaders/SudokuProblemLoader.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/main/Main.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/solvers/BacktrackingAlgorithmStatistics.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/solvers/MultiSolutionBacktrackingAlgorithm.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/solvers/OneSolutionBacktrackingAlgorithm.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/sudoku/SudokuConstraint.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/sudoku/SudokuProblem.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/sudoku/SudokuVariable.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/CSPSolver.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +28,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="feature/backtracking_algorithm" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -125,6 +51,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="extract.method.default.visibility" value="private" />
@@ -148,7 +75,7 @@
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.Main" />
-      <module name="Constraint Satisfaction Problem" />
+      <module name="CSPSolver" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -185,6 +112,7 @@
       <workItem from="1585086333880" duration="2825000" />
       <workItem from="1585124047733" duration="51946000" />
       <workItem from="1585211649541" duration="11727000" />
+      <workItem from="1585224080844" duration="187000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1585223261522</created>
@@ -207,10 +135,18 @@
     <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="485" y="72" key="#Main" timestamp="1585224163823">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="485" y="72" key="#Main/0.0.1536.824@0.0.1536.824" timestamp="1585224163823" />
     <state x="361" y="72" key="#Project_Structure" timestamp="1585042860098">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="72" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1585042860098" />
+    <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585224129695">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1585224129695" />
     <state x="574" y="129" key="#com.intellij.ide.util.MemberChooser" timestamp="1585221179162">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -239,22 +175,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="270" y="119" key="Github.UntrackedFilesDialog/0.0.1536.824@0.0.1536.824" timestamp="1585223024430" />
-    <state width="1493" height="351" key="GridCell.Tab.0.bottom" timestamp="1585222744128">
+    <state width="1493" height="351" key="GridCell.Tab.0.bottom" timestamp="1585224314314">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="351" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585222744128" />
-    <state width="1493" height="351" key="GridCell.Tab.0.center" timestamp="1585222744128">
+    <state width="1493" height="351" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585224314314" />
+    <state width="1493" height="351" key="GridCell.Tab.0.center" timestamp="1585224314314">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="351" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1585222744128" />
-    <state width="1493" height="351" key="GridCell.Tab.0.left" timestamp="1585222744128">
+    <state width="1493" height="351" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1585224314314" />
+    <state width="1493" height="351" key="GridCell.Tab.0.left" timestamp="1585224314314">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="351" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1585222744128" />
-    <state width="1493" height="351" key="GridCell.Tab.0.right" timestamp="1585222744128">
+    <state width="1493" height="351" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1585224314314" />
+    <state width="1493" height="351" key="GridCell.Tab.0.right" timestamp="1585224314314">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="351" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1585222744128" />
+    <state width="1493" height="351" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1585224314314" />
     <state width="1493" height="396" key="GridCell.Tab.1.bottom" timestamp="1585215077886">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
