@@ -5,7 +5,9 @@ import abstraction.CSPVariable;
 import abstraction.Domain;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class CrosswordVariable implements CSPVariable<String> {
 
@@ -16,7 +18,8 @@ public class CrosswordVariable implements CSPVariable<String> {
     private int beginningColumnNumber;
 
     private Domain<String> domainWords;
-    private List<CSPConstraint> constraints = new ArrayList<CSPConstraint>();
+    private Domain<String> filteredDomainWords;
+    private List<CSPConstraint<String>> constraints = new ArrayList<>();
 
     public CrosswordVariable(Direction direction, int length, int beginningRowNumber, int beginningColumnNumber) {
         this.direction = direction;
@@ -27,6 +30,11 @@ public class CrosswordVariable implements CSPVariable<String> {
 
     public boolean isEmpty() {
         return word == null;
+    }
+
+    @Override
+    public void setEmpty() {
+        word = null;
     }
 
     public String getWord() {
@@ -63,7 +71,7 @@ public class CrosswordVariable implements CSPVariable<String> {
         if (!lengthConstraint) {
             return false;
         }
-        for (CSPConstraint constraint : constraints) {
+        for (CSPConstraint<String> constraint : constraints) {
             if (!constraint.isSatisfied()) {
                 return false;
             }
@@ -79,7 +87,7 @@ public class CrosswordVariable implements CSPVariable<String> {
         this.word = word;
     }
 
-    public void addConstraint(CSPConstraint constraint) {
+    public void addConstraint(CSPConstraint<String> constraint) {
         constraints.add(constraint);
     }
 
@@ -93,6 +101,29 @@ public class CrosswordVariable implements CSPVariable<String> {
 
     public void setDomain(Domain<String> domain) {
         domainWords = domain;
+    }
+
+    @Override
+    public Set<String> filterDomain(CSPVariable<String> otherVariable) {
+        Set<String> removedDomainValues = new HashSet<>();
+        for (CSPConstraint<String> constraint : constraints) {
+            if (constraint.involvesVariable(otherVariable)) {
+                removedDomainValues.addAll(constraint.getValuesToFilter(this, otherVariable));
+            }
+        }
+
+        filteredDomainWords.removeFromDomain(removedDomainValues);
+        return removedDomainValues;
+    }
+
+    @Override
+    public Domain<String> getFilteredDomain() {
+        return filteredDomainWords;
+    }
+
+    @Override
+    public void setFilteredDomain(Domain<String> domain) {
+        filteredDomainWords = domain;
     }
 
     @Override

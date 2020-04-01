@@ -1,5 +1,6 @@
 package loaders;
 
+import abstraction.CSPConstraint;
 import abstraction.CSPVariable;
 import abstraction.Domain;
 import crossword.*;
@@ -24,12 +25,12 @@ public class CrosswordProblemLoader extends Loader {
             List<String> allDomainWords = getWords(problemNumber);
             char[][] puzzleChart = getPuzzleChart(problemNumber);
             List<CrosswordVariable> crosswordVariables = getVariablesFor(puzzleChart);
-            addConstraintToVariables(crosswordVariables);
+            List<CSPConstraint<String>> constraints = addConstraintToVariables(crosswordVariables);
             setDomainsForVariables(crosswordVariables, allDomainWords);
 
-            List<CSPVariable<String>> variables = new ArrayList<CSPVariable<String>>(crosswordVariables);
+            List<CSPVariable<String>> variables = new ArrayList<>(crosswordVariables);
 
-            return new CrosswordProblem(name, variables, puzzleChart);
+            return new CrosswordProblem(name, variables, constraints, puzzleChart);
         }
     }
 
@@ -49,26 +50,28 @@ public class CrosswordProblemLoader extends Loader {
     }
 
     private static List<CrosswordVariable> getVariablesFor(char[][] puzzleArray) {
-        List<CrosswordVariable> variables = new ArrayList<CrosswordVariable>();
+        List<CrosswordVariable> variables = new ArrayList<>();
         readRowVariables(puzzleArray, variables);
         readColumnVariables(puzzleArray, variables);
         return variables;
     }
 
-    private static void addConstraintToVariables(List<CrosswordVariable> variables) {
-        addIntersectionConstraints(variables);
-        addRepeatConstraints(variables);
+    private static List<CSPConstraint<String>> addConstraintToVariables(List<CrosswordVariable> variables) {
+        List<CSPConstraint<String>> constraints = new ArrayList<>();
+        addIntersectionConstraints(variables, constraints);
+        addRepeatConstraints(variables, constraints);
+        return constraints;
     }
 
-    private static void addIntersectionConstraints(List<CrosswordVariable> variables) {
+    private static void addIntersectionConstraints(List<CrosswordVariable> variables, List<CSPConstraint<String>> constraints) {
         for (CrosswordVariable variable : variables) {
             if (variable.getDirection() == Direction.ROW) {
-                addIntersectionConstraintsForRowVariable(variable, variables);
+                addIntersectionConstraintsForRowVariable(variable, variables, constraints);
             }
         }
     }
 
-    private static void addRepeatConstraints(List<CrosswordVariable> variables) {
+    private static void addRepeatConstraints(List<CrosswordVariable> variables, List<CSPConstraint<String>> constraints) {
         for (int i = 0; i < variables.size(); i++) {
             for (int j = i + 1; j < variables.size(); j++) {
                 CrosswordVariable variable1 = variables.get(i);
@@ -77,6 +80,7 @@ public class CrosswordProblemLoader extends Loader {
                     CrosswordRepeatConstraint constraint = new CrosswordRepeatConstraint(variable1, variable2);
                     variable1.addConstraint(constraint);
                     variable2.addConstraint(constraint);
+                    constraints.add(constraint);
                 }
             }
         }
@@ -88,20 +92,23 @@ public class CrosswordProblemLoader extends Loader {
             int length = variable.getLength();
             List<String> wordList = differentLengthWordLists.get(length);
 
-            Domain<String> variableDomain = new Domain<String>();
-            variableDomain.setDomainValues(new ArrayList<String>(wordList));
+            Domain<String> variableDomain = new Domain<>();
+            variableDomain.setDomainValues(new ArrayList<>(wordList));
+            Domain<String> filteredDomain = new Domain<>();
+            filteredDomain.setDomainValues(new ArrayList<>(wordList));
             variable.setDomain(variableDomain);
+            variable.setFilteredDomain(filteredDomain);
         }
     }
 
     private static Map<Integer, List<String>> getDifferentLengthWordLists(List<String> allDomainWords) {
-        Map<Integer, List<String>> differentWordsLengthDomains = new HashMap<Integer, List<String>>();
+        Map<Integer, List<String>> differentWordsLengthDomains = new HashMap<>();
         for (String word : allDomainWords) {
             int length = word.length();
             if (differentWordsLengthDomains.containsKey(length)) {
                 differentWordsLengthDomains.get(length).add(word);
             } else {
-                List<String> list = new ArrayList<String>();
+                List<String> list = new ArrayList<>();
                 list.add(word);
                 differentWordsLengthDomains.put(length, list);
             }
@@ -134,12 +141,13 @@ public class CrosswordProblemLoader extends Loader {
     }
 
     private static void addIntersectionConstraintsForRowVariable(CrosswordVariable rowVariable,
-                                                                 List<CrosswordVariable> variables) {
+                                                                 List<CrosswordVariable> variables, List<CSPConstraint<String>> constraints) {
         for (CrosswordVariable otherVariable : variables) {
             if (otherVariable.getDirection() == Direction.COLUMN && checkIfIntersect(rowVariable, otherVariable)) {
                 CrosswordIntersectionConstraint constraint = new CrosswordIntersectionConstraint(rowVariable, otherVariable);
                 rowVariable.addConstraint(constraint);
                 otherVariable.addConstraint(constraint);
+                constraints.add(constraint);
             }
         }
     }

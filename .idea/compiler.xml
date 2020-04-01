@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Constraint Satisfaction Problem" />
+        <module name="CSPSolver" />
       </profile>
     </annotationProcessing>
   </component>
