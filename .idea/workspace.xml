@@ -1,50 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2b942ea6-dfa7-480a-a26e-907d1374d313" name="Default Changelist" comment="implement forward checking algorithm">
-      <change afterPath="$PROJECT_DIR$/src/java/solvers/MultiSolutionForwardChecking.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/java/solvers/OneSolutionForwardChecking.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/CSPSolver.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CSPSolver.iml" afterDir="false" />
+    <list default="true" id="2b942ea6-dfa7-480a-a26e-907d1374d313" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/java/abstraction/FilteredDomainSizeVariableOrderSetter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/java/solvers/MultiSolutionForwardCheckingEachStepSortingVar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/java/solvers/OneSolutionForwardCheckingEachStepSortingVar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/abstraction/CSPConstraint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/abstraction/CSPConstraint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/abstraction/CSPVariable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/abstraction/CSPVariable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/abstraction/ConstraintSatisfactoryProblem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/abstraction/ConstraintSatisfactoryProblem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/abstraction/Domain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/abstraction/Domain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/abstraction/DomainSizeOrderSetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/abstraction/DomainSizeVariableOrderSetter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/crossword/CrosswordIntersectionConstraint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/crossword/CrosswordIntersectionConstraint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/crossword/CrosswordProblem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/crossword/CrosswordProblem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/crossword/CrosswordRepeatConstraint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/crossword/CrosswordRepeatConstraint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/crossword/CrosswordVariable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/crossword/CrosswordVariable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/loaders/CrosswordProblemLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/loaders/CrosswordProblemLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/loaders/SudokuProblemLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/loaders/SudokuProblemLoader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/java/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/solvers/BacktrackingAlgorithmStatistics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/solvers/SolvingAlgorithmStatistics.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/solvers/MultiSolutionBacktrackingAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/solvers/MultiSolutionBacktrackingAlgorithm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/solvers/OneSolutionBacktrackingAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/solvers/OneSolutionBacktrackingAlgorithm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/sudoku/SudokuConstraint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/sudoku/SudokuConstraint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/sudoku/SudokuProblem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/sudoku/SudokuProblem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/sudoku/SudokuVariable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/sudoku/SudokuVariable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/Constraint Satisfaction Problem.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/abstraction/CSPConstraint.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/abstraction/CSPConstraint.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/abstraction/CSPVariable.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/abstraction/CSPVariable.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/abstraction/ConstraintSatisfactoryProblem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/abstraction/ConstraintSatisfactoryProblem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/abstraction/Domain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/abstraction/Domain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/abstraction/DomainSizeOrderSetter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/crossword/CrosswordIntersectionConstraint.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/crossword/CrosswordIntersectionConstraint.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/crossword/CrosswordProblem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/crossword/CrosswordProblem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/crossword/CrosswordRepeatConstraint.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/crossword/CrosswordRepeatConstraint.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/crossword/CrosswordVariable.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/crossword/CrosswordVariable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/loaders/CrosswordProblemLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/loaders/CrosswordProblemLoader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/loaders/SudokuProblemLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/loaders/SudokuProblemLoader.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/solvers/BacktrackingAlgorithmStatistics.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/solvers/MultiSolutionBacktrackingAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/solvers/MultiSolutionBacktrackingAlgorithm.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/solvers/OneSolutionBacktrackingAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/solvers/OneSolutionBacktrackingAlgorithm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sudoku/SudokuConstraint.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sudoku/SudokuConstraint.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sudoku/SudokuProblem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sudoku/SudokuProblem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sudoku/SudokuVariable.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sudoku/SudokuVariable.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +127,8 @@
       <workItem from="1585647575394" duration="5002000" />
       <workItem from="1585659980759" duration="5694000" />
       <workItem from="1585671098488" duration="11764000" />
-      <workItem from="1585730845036" duration="4824000" />
+      <workItem from="1585730845036" duration="8392000" />
+      <workItem from="1585814190113" duration="1351000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1585223261522</created>
@@ -176,7 +144,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585224515677</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="implement forward checking algorithm">
+      <created>1585735783351</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1585735783351</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -215,10 +190,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="160" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1536.824@0.0.1536.824" timestamp="1585732800634" />
-    <state x="135" y="8" key="CommitChangelistDialog2" timestamp="1585735755390">
+    <state x="135" y="8" key="CommitChangelistDialog2" timestamp="1585735778123">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="135" y="8" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1585735755390" />
+    <state x="135" y="8" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1585735778123" />
     <state x="549" y="168" key="FileChooserDialogImpl" timestamp="1585042834125">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -231,38 +206,38 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="270" y="119" key="Github.UntrackedFilesDialog/0.0.1536.824@0.0.1536.824" timestamp="1585223024430" />
-    <state width="1493" height="524" key="GridCell.Tab.0.bottom" timestamp="1585734924079">
+    <state width="1493" height="490" key="GridCell.Tab.0.bottom" timestamp="1585815330155">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="524" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585734924079" />
-    <state width="1493" height="524" key="GridCell.Tab.0.center" timestamp="1585734924078">
+    <state width="1493" height="490" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585815330155" />
+    <state width="1493" height="490" key="GridCell.Tab.0.center" timestamp="1585815330154">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="524" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1585734924078" />
-    <state width="1493" height="524" key="GridCell.Tab.0.left" timestamp="1585734924078">
+    <state width="1493" height="490" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1585815330154" />
+    <state width="1493" height="490" key="GridCell.Tab.0.left" timestamp="1585815330154">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="524" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1585734924078" />
-    <state width="1493" height="524" key="GridCell.Tab.0.right" timestamp="1585734924078">
+    <state width="1493" height="490" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1585815330154" />
+    <state width="1493" height="490" key="GridCell.Tab.0.right" timestamp="1585815330154">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="524" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1585734924078" />
-    <state width="1493" height="401" key="GridCell.Tab.1.bottom" timestamp="1585688037373">
+    <state width="1493" height="490" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1585815330154" />
+    <state width="1493" height="401" key="GridCell.Tab.1.bottom" timestamp="1585739246658">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="401" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585688037373" />
-    <state width="1493" height="401" key="GridCell.Tab.1.center" timestamp="1585688037373">
+    <state width="1493" height="401" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585739246658" />
+    <state width="1493" height="401" key="GridCell.Tab.1.center" timestamp="1585739246658">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="401" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1585688037373" />
-    <state width="1493" height="401" key="GridCell.Tab.1.left" timestamp="1585688037373">
+    <state width="1493" height="401" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1585739246658" />
+    <state width="1493" height="401" key="GridCell.Tab.1.left" timestamp="1585739246658">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="401" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1585688037373" />
-    <state width="1493" height="401" key="GridCell.Tab.1.right" timestamp="1585688037373">
+    <state width="1493" height="401" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1585739246658" />
+    <state width="1493" height="401" key="GridCell.Tab.1.right" timestamp="1585739246658">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="401" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1585688037373" />
+    <state width="1493" height="401" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1585739246658" />
     <state x="782" y="386" key="ReplaceDuplicatesPrompt" timestamp="1585048538719">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

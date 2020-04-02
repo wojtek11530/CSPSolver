@@ -1,27 +1,24 @@
 package main;
 
-import abstraction.ConstraintsNumberOrderSetter;
-import abstraction.DomainSizeVariableOrderSetter;
-import abstraction.TheSameDomainOrderSetter;
+import abstraction.*;
 import crossword.CrosswordProblem;
 import loaders.CrosswordProblemLoader;
 import loaders.SudokuProblemLoader;
-import solvers.MultiSolutionBacktrackingAlgorithm;
-import solvers.MultiSolutionForwardChecking;
+import solvers.*;
 import sudoku.SudokuProblem;
 
 import java.util.Scanner;
 
 public class Main {
 
-    public static final String PROBLEM_NAME = "crossword_4";
+    public static final String PROBLEM_NAME = "sudoku_11";
 
     public static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        runProblem(PROBLEM_NAME);
-        //printWelcomeMessage();
-        //communicateWithUser();
+        //runProblem(PROBLEM_NAME);
+        printWelcomeMessage();
+        communicateWithUser();
     }
 
     private static void printWelcomeMessage() {
@@ -68,11 +65,14 @@ public class Main {
     private static void crosswordRun(int problemNumber) {
         CrosswordProblem crosswordProblem = CrosswordProblemLoader.loadProblem(problemNumber);
         if (crosswordProblem != null) {
-            MultiSolutionBacktrackingAlgorithm<String> backtrackAlgorithm = new MultiSolutionBacktrackingAlgorithm<>();
-            MultiSolutionForwardChecking<String> forwardAlgorithm = new MultiSolutionForwardChecking<>();
 
-            boolean solved = backtrackAlgorithm.solve(crosswordProblem,
-                    new ConstraintsNumberOrderSetter<>(),
+            MultiSolutionForwardChecking<String> forwardAlgorithm = new MultiSolutionForwardChecking<>();
+            MultiSolutionForwardCheckingEachStepSortingVar<String> forwardAlgorithmWithSorting =
+                    new MultiSolutionForwardCheckingEachStepSortingVar<>();
+
+
+            boolean solved = forwardAlgorithm.solve(crosswordProblem,
+                    new DomainSizeVariableOrderSetter<>(),
                     new TheSameDomainOrderSetter<>());
             if (!solved) {
                 System.out.println("Problem is not solved");
@@ -80,14 +80,15 @@ public class Main {
             crosswordProblem.printProblem();
             crosswordProblem.deleteAllSolutions();
             crosswordProblem.resetVariablesValues();
-            solved = forwardAlgorithm.solve(crosswordProblem,
-                    new ConstraintsNumberOrderSetter<>(),
-                    new TheSameDomainOrderSetter<>());
 
+            solved = forwardAlgorithmWithSorting.solve(crosswordProblem,
+                    new FilteredDomainSizeVariableOrderSetter<>(),
+                    new TheSameDomainOrderSetter<>());
             if (!solved) {
                 System.out.println("Problem is not solved");
             }
             crosswordProblem.printProblem();
+
         }
     }
 
@@ -95,13 +96,14 @@ public class Main {
         SudokuProblem sudokuProblem = SudokuProblemLoader.loadProblem(problemNumber);
 
         if (sudokuProblem != null) {
-            MultiSolutionBacktrackingAlgorithm<Integer> backtrackAlgorithm = new MultiSolutionBacktrackingAlgorithm<>();
             MultiSolutionForwardChecking<Integer> forwardAlgorithm = new MultiSolutionForwardChecking<>();
+            MultiSolutionForwardCheckingEachStepSortingVar<Integer> forwardAlgorithmWithSorting =
+                    new MultiSolutionForwardCheckingEachStepSortingVar<>();
 
-            boolean solved = backtrackAlgorithm.solve(sudokuProblem,
+
+            boolean solved = forwardAlgorithm.solve(sudokuProblem,
                     new DomainSizeVariableOrderSetter<>(),
                     new TheSameDomainOrderSetter<>());
-
             if (!solved) {
                 System.out.println("Problem is not solved");
             }
@@ -109,10 +111,9 @@ public class Main {
             sudokuProblem.deleteAllSolutions();
             sudokuProblem.resetVariablesValues();
 
-            solved = forwardAlgorithm.solve(sudokuProblem,
-                    new DomainSizeVariableOrderSetter<>(),
+            solved = forwardAlgorithmWithSorting.solve(sudokuProblem,
+                    new FilteredDomainSizeVariableOrderSetter<>(),
                     new TheSameDomainOrderSetter<>());
-
             if (!solved) {
                 System.out.println("Problem is not solved");
             }
