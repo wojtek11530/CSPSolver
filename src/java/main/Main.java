@@ -96,12 +96,23 @@ public class Main {
         SudokuProblem sudokuProblem = SudokuProblemLoader.loadProblem(problemNumber);
 
         if (sudokuProblem != null) {
+
+            MultiSolutionBacktrackingAlgorithm<Integer> backtrackingAlgorithm = new MultiSolutionBacktrackingAlgorithm<>();
             MultiSolutionForwardChecking<Integer> forwardAlgorithm = new MultiSolutionForwardChecking<>();
             MultiSolutionForwardCheckingEachStepSortingVar<Integer> forwardAlgorithmWithSorting =
                     new MultiSolutionForwardCheckingEachStepSortingVar<>();
 
+            boolean solved = backtrackingAlgorithm.solve(sudokuProblem,
+                    new DomainSizeVariableOrderSetter<>(),
+                    new TheSameDomainOrderSetter<>());
+            if (!solved) {
+                System.out.println("Problem is not solved");
+            }
+            sudokuProblem.printProblem();
+            sudokuProblem.deleteAllSolutions();
+            sudokuProblem.resetVariablesValues();
 
-            boolean solved = forwardAlgorithm.solve(sudokuProblem,
+            solved = forwardAlgorithm.solve(sudokuProblem,
                     new DomainSizeVariableOrderSetter<>(),
                     new TheSameDomainOrderSetter<>());
             if (!solved) {
