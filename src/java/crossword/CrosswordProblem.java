@@ -1,5 +1,6 @@
 package crossword;
 
+import abstraction.CSPConstraint;
 import abstraction.CSPVariable;
 import abstraction.ConstraintSatisfactoryProblem;
 
@@ -10,14 +11,14 @@ public class CrosswordProblem extends ConstraintSatisfactoryProblem<String> {
     private char[][] emptyPuzzleChart;
     private char[][] solvedPuzzleChart = null;
 
-    public CrosswordProblem(String name, List<CSPVariable<String>> variables,
+    public CrosswordProblem(String name, List<CSPVariable<String>> variables, List<CSPConstraint<String>> constraints,
                             char[][] puzzleChart) {
-        super(name, variables);
+        super(name, variables, constraints);
         this.emptyPuzzleChart = puzzleChart;
     }
 
     public void addCurrentVariablesValuesAsSolution() {
-        Map<CSPVariable<String>, String> solution = new HashMap<CSPVariable<String>, String>();
+        Map<CSPVariable<String>, String> solution = new HashMap<>();
         for (CSPVariable<String> variable : variables) {
             String value = variable.getVariableValue();
             solution.put(variable, value);
@@ -25,7 +26,8 @@ public class CrosswordProblem extends ConstraintSatisfactoryProblem<String> {
         solutions.add(solution);
     }
 
-    public void printCrosswordProblem() {
+
+    public void printProblem() {
         printEmptyPuzzleChart();
         System.out.println();
         printDomainWords();
@@ -45,7 +47,7 @@ public class CrosswordProblem extends ConstraintSatisfactoryProblem<String> {
     }
 
     private void printDomainWords() {
-        Set<String> entireDomain = new HashSet<String>();
+        Set<String> entireDomain = new HashSet<>();
         for (CSPVariable<String> variable : variables) {
             entireDomain.addAll(variable.getDomain().getDomainValues());
         }

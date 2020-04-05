@@ -5,7 +5,9 @@ import abstraction.CSPVariable;
 import abstraction.Domain;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class SudokuVariable implements CSPVariable<Integer> {
 
@@ -13,7 +15,8 @@ public class SudokuVariable implements CSPVariable<Integer> {
     private int rowNumber;
     private int columnNumber;
     private Domain<Integer> domainDigits;
-    private List<CSPConstraint> constraints = new ArrayList<CSPConstraint>();
+    private Domain<Integer> filteredDomainDigits;
+    private List<CSPConstraint<Integer>> constraints = new ArrayList<>();
 
     public SudokuVariable(int rowNumber, int columnNumber) {
         this.rowNumber = rowNumber;
@@ -32,8 +35,13 @@ public class SudokuVariable implements CSPVariable<Integer> {
         return digit == null;
     }
 
+    @Override
+    public void setEmpty() {
+        digit = null;
+    }
+
     public boolean checkConstraints() {
-        for (CSPConstraint constraint : constraints) {
+        for (CSPConstraint<Integer> constraint : constraints) {
             if (!constraint.isSatisfied()) {
                 return false;
             }
@@ -49,7 +57,7 @@ public class SudokuVariable implements CSPVariable<Integer> {
         digit = value;
     }
 
-    public void addConstraint(CSPConstraint constraint) {
+    public void addConstraint(CSPConstraint<Integer> constraint) {
         constraints.add(constraint);
     }
 
@@ -63,6 +71,28 @@ public class SudokuVariable implements CSPVariable<Integer> {
 
     public void setDomain(Domain<Integer> domain) {
         domainDigits = domain;
+    }
+
+    @Override
+    public Set<Integer> filterDomain(CSPVariable<Integer> otherVariable) {
+        Set<Integer> removedDomainValues = new HashSet<>();
+        for (CSPConstraint<Integer> constraint : constraints) {
+            if (constraint.involvesVariable(otherVariable)) {
+                removedDomainValues.addAll(constraint.getValuesToFilter(this, otherVariable));
+            }
+        }
+        filteredDomainDigits.removeFromDomain(removedDomainValues);
+        return removedDomainValues;
+    }
+
+    @Override
+    public Domain<Integer> getFilteredDomain() {
+        return filteredDomainDigits;
+    }
+
+    @Override
+    public void setFilteredDomain(Domain<Integer> domain) {
+        filteredDomainDigits = domain;
     }
 
     @Override

@@ -9,9 +9,9 @@ import java.util.List;
 
 public class MultiSolutionBacktrackingAlgorithm<T> implements CSPSolver<T> {
 
-    ConstraintSatisfactoryProblem<T> solvingProblem;
-    BacktrackingAlgorithmStatistics statistics;
-    List<CSPVariable<T>> variablesToIterate;
+    private ConstraintSatisfactoryProblem<T> solvingProblem;
+    private SolvingAlgorithmStatistics statistics;
+    private List<CSPVariable<T>> variablesToIterate;
     private DomainOrderSetter<T> domainOrderSetter;
 
 
@@ -20,18 +20,17 @@ public class MultiSolutionBacktrackingAlgorithm<T> implements CSPSolver<T> {
                          DomainOrderSetter<T> domainOrderSetter) {
 
         this.solvingProblem = problem;
-        this.statistics = new BacktrackingAlgorithmStatistics();
+        this.statistics = new SolvingAlgorithmStatistics("Multi Solution Backtracking Algorithm");
         this.domainOrderSetter = domainOrderSetter;
 
         List<CSPVariable<T>>  variables = problem.getVariables();
 
         statistics.start();
-        variablesToIterate = new ArrayList<CSPVariable<T>>(variables);
+        variablesToIterate = new ArrayList<>(variables);
         variablesOrderSetter.setOrder(variablesToIterate);
         int variableIndex = 0;
 
         tryAssignValueToVariable(variableIndex);
-
         statistics.setOverallTime();
         System.out.println(solvingProblem.getName());
         System.out.println(statistics);
@@ -39,7 +38,6 @@ public class MultiSolutionBacktrackingAlgorithm<T> implements CSPSolver<T> {
     }
 
     private void tryAssignValueToVariable(int variableIndex) {
-
         if (variableIndex  == variablesToIterate.size()) {
             manageSolutionFinding();
         } else {

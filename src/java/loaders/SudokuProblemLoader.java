@@ -1,5 +1,6 @@
 package loaders;
 
+import abstraction.CSPConstraint;
 import abstraction.CSPVariable;
 import abstraction.Domain;
 import sudoku.SudokuConstraint;
@@ -27,10 +28,10 @@ public class SudokuProblemLoader extends Loader {
             String name = "SUDOKU " + problemNumber;
             int[][] sudokuChart = getSudokuChart(problemNumber);
             List<SudokuVariable> sudokuVariables = getSudokuVariables(sudokuChart);
-            addConstraintsToVariables(sudokuVariables);
+            List<CSPConstraint<Integer>> constraints = addConstraintsToVariables(sudokuVariables);
 
-            List<CSPVariable<Integer>> variables = new ArrayList<CSPVariable<Integer>>(sudokuVariables);
-            return new SudokuProblem(name, variables, sudokuChart);
+            List<CSPVariable<Integer>> variables = new ArrayList<>(sudokuVariables);
+            return new SudokuProblem(name, variables, constraints, sudokuChart);
         }
     }
 
@@ -51,7 +52,7 @@ public class SudokuProblemLoader extends Loader {
     }
 
     private static List<SudokuVariable> getSudokuVariables(int[][] sudokuChart) {
-        List<SudokuVariable> sudokuVariables = new ArrayList<SudokuVariable>();
+        List<SudokuVariable> sudokuVariables = new ArrayList<>();
         for (int row_i = 0; row_i < SUDOKU_ROW_NUM; row_i++) {
             for (int col_i = 0; col_i < SUDOKU_COL_NUM; col_i++) {
                 int digit = sudokuChart[row_i][col_i];
@@ -64,7 +65,7 @@ public class SudokuProblemLoader extends Loader {
 
     private static SudokuVariable getSudokuVariable(int row_i, int col_i, int digit) {
         SudokuVariable sudokuVariable = new SudokuVariable(row_i, col_i);
-        Domain<Integer> sudokuDomain = new Domain<Integer>();
+        Domain<Integer> sudokuDomain = new Domain<>();
         if (digit == 0) {
             for (int i = 1; i < 10; i++) {
                 sudokuDomain.addToDomain(i);
@@ -73,19 +74,21 @@ public class SudokuProblemLoader extends Loader {
             sudokuDomain.addToDomain(digit);
         }
         sudokuVariable.setDomain(sudokuDomain);
+        sudokuVariable.setFilteredDomain(sudokuDomain);
         return sudokuVariable;
     }
 
-    private static void addConstraintsToVariables(List<SudokuVariable> sudokuVariables) {
+    private static List<CSPConstraint<Integer>> addConstraintsToVariables(List<SudokuVariable> sudokuVariables) {
 
-        List<List<SudokuVariable>> variablesInOneRow = new ArrayList<List<SudokuVariable>>();
-        List<List<SudokuVariable>> variablesInOneColumn = new ArrayList<List<SudokuVariable>>();
-        List<List<SudokuVariable>> variablesInOneBox = new ArrayList<List<SudokuVariable>>();
+        List<CSPConstraint<Integer>>  constraintList = new ArrayList<>();
+        List<List<SudokuVariable>> variablesInOneRow = new ArrayList<>();
+        List<List<SudokuVariable>> variablesInOneColumn = new ArrayList<>();
+        List<List<SudokuVariable>> variablesInOneBox = new ArrayList<>();
 
         for (int i = 0; i < 9; i++) {
-            variablesInOneRow.add(new ArrayList<SudokuVariable>());
-            variablesInOneColumn.add(new ArrayList<SudokuVariable>());
-            variablesInOneBox.add(new ArrayList<SudokuVariable>());
+            variablesInOneRow.add(new ArrayList<>());
+            variablesInOneColumn.add(new ArrayList<>());
+            variablesInOneBox.add(new ArrayList<>());
         }
         for (SudokuVariable variable : sudokuVariables) {
             int column = variable.getColumnNumber();
@@ -98,25 +101,26 @@ public class SudokuProblemLoader extends Loader {
         }
         for (List<SudokuVariable> variables : variablesInOneRow) {
             SudokuConstraint constraint =  new SudokuConstraint(variables);
-            //constraintList.add(constraint);
+            constraintList.add(constraint);
             for (SudokuVariable variable : variables) {
                 variable.addConstraint(constraint);
             }
         }
         for (List<SudokuVariable> variables : variablesInOneColumn) {
             SudokuConstraint constraint =  new SudokuConstraint(variables);
-            //constraintList.add(constraint);
+            constraintList.add(constraint);
             for (SudokuVariable variable : variables) {
                 variable.addConstraint(constraint);
             }
         }
         for (List<SudokuVariable> variables : variablesInOneBox) {
             SudokuConstraint constraint =  new SudokuConstraint(variables);
-            //constraintList.add(constraint);
+            constraintList.add(constraint);
             for (SudokuVariable variable : variables) {
                 variable.addConstraint(constraint);
             }
         }
+        return constraintList;
     }
 
 
