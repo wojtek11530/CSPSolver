@@ -1,24 +1,23 @@
 package abstraction;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 public class Domain<T> {
 
-    private List<T> domainValues = new ArrayList<T>();
+    private List<T> domainValues = new ArrayList<>();
 
     public List<T> getDomainValues() {
         return domainValues;
     }
 
-    public T get(int index) {
-        return domainValues.get(index);
-    }
-
     public void setDomainValues(List<T> objectLists) {
         domainValues = objectLists;
+    }
+
+    public boolean isEmpty() { return domainValues.isEmpty(); }
+
+    public T get(int index) {
+        return domainValues.get(index);
     }
 
     public boolean contains(T object) {
@@ -29,12 +28,20 @@ public class Domain<T> {
         domainValues.add(object);
     }
 
+    public void addToDomain(Set<T> objects) {
+        domainValues.addAll(objects);
+    }
+
     public void addToDomain(int index, T object) {
         domainValues.add(index, object);
     }
 
     public void removeFromDomain(T object) {
         domainValues.remove(object);
+    }
+
+    public void removeFromDomain(Set<T> objects) {
+        domainValues.removeAll(objects);
     }
 
     public int getSize() {

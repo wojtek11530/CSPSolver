@@ -9,30 +9,28 @@ import java.util.List;
 
 public class OneSolutionBacktrackingAlgorithm<T> implements CSPSolver<T> {
 
-    ConstraintSatisfactoryProblem<T> solvingProblem;
-    BacktrackingAlgorithmStatistics statistics;
-    List<CSPVariable<T>> variablesToIterate;
-    DomainOrderSetter<T> domainOrderSetter;
+    private ConstraintSatisfactoryProblem<T> solvingProblem;
+    private SolvingAlgorithmStatistics statistics;
+    private List<CSPVariable<T>> variablesToIterate;
+    private DomainOrderSetter<T> domainOrderSetter;
 
     public boolean solve(ConstraintSatisfactoryProblem<T> problem,
                          VariablesOrderSetter<T> variablesOrderSetter,
                          DomainOrderSetter<T> domainOrderSetter) {
 
         this.solvingProblem = problem;
-        this.statistics = new BacktrackingAlgorithmStatistics();
+        this.statistics = new SolvingAlgorithmStatistics("One Solution Backtracking Algorithm");
         this.domainOrderSetter = domainOrderSetter;
 
         List<CSPVariable<T>> variables = problem.getVariables();
 
-        statistics = new BacktrackingAlgorithmStatistics();
         statistics.start();
-        variablesToIterate = new ArrayList<CSPVariable<T>>(variables);
+        variablesToIterate = new ArrayList<>(variables);
         variablesOrderSetter.setOrder(variablesToIterate);
         int variableIndex = 0;
 
         tryAssignValueToVariable(variableIndex);
         statistics.setOverallTime();
-
         System.out.println(solvingProblem.getName());
         System.out.println(statistics);
         return statistics.isAnySolutionFound();
@@ -68,7 +66,6 @@ public class OneSolutionBacktrackingAlgorithm<T> implements CSPSolver<T> {
                 statistics.increaseOverallBacktrackNumber();
             }
         }
-
         statistics.increaseOverallBacktrackNumber();
         return false;
     }

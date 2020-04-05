@@ -3,7 +3,6 @@ package sudoku;
 import abstraction.CSPConstraint;
 import abstraction.CSPVariable;
 import abstraction.ConstraintSatisfactoryProblem;
-import crossword.CrosswordVariable;
 
 import java.util.HashMap;
 import java.util.List;
@@ -14,13 +13,13 @@ public class SudokuProblem extends ConstraintSatisfactoryProblem<Integer> {
     private int[][] notsolvedSudokuChart;
     private int[][] solvedSudokuChart = null;
 
-    public SudokuProblem(String name, List<CSPVariable<Integer>> variables, int[][] sudokuChart) {
-        super(name, variables);
+    public SudokuProblem(String name, List<CSPVariable<Integer>> variables, List<CSPConstraint<Integer>> constraints, int[][] sudokuChart) {
+        super(name, variables, constraints);
         notsolvedSudokuChart = sudokuChart;
     }
 
     public void addCurrentVariablesValuesAsSolution() {
-        Map<CSPVariable<Integer>, Integer> solution = new HashMap<CSPVariable<Integer>, Integer>();
+        Map<CSPVariable<Integer>, Integer> solution = new HashMap<>();
         for (CSPVariable<Integer> variable : variables) {
             Integer value = variable.getVariableValue();
             solution.put(variable, value);
@@ -28,7 +27,7 @@ public class SudokuProblem extends ConstraintSatisfactoryProblem<Integer> {
         solutions.add(solution);
     }
 
-    public void printCrosswordProblem() {
+    public void printProblem() {
         printNotSolvedChart();
         System.out.println();
         printSolutions();

@@ -3,8 +3,9 @@ package solvers;
 import java.time.Duration;
 import java.time.LocalTime;
 
-public class BacktrackingAlgorithmStatistics {
+public class SolvingAlgorithmStatistics {
 
+    private String name;
     private LocalTime beginningTime;
     private long overallTime;
     private int overallNodesNumber = 0;
@@ -13,6 +14,10 @@ public class BacktrackingAlgorithmStatistics {
     private int nodesNumberToFirstSolution = 0;
     private int backtracksNumberToFirstSolution = 0;
     private int solutionsNumber = 0;
+
+    public SolvingAlgorithmStatistics(String name) {
+        this.name = name;
+    }
 
     public void start() {
         beginningTime = LocalTime.now();
@@ -59,8 +64,8 @@ public class BacktrackingAlgorithmStatistics {
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("BACKTRACKING ALGORITHM STATISTICS:")
-                .append("\nSolutions number: ").append(solutionsNumber)
+        stringBuilder.append(name.toUpperCase())
+                .append(":\nSolutions number: ").append(solutionsNumber)
                 .append("\nOverall time: ").append(overallTime).append("ms")
                 .append("\nOverall nodes number: ").append(overallNodesNumber)
                 .append("\nOverall backtrack number: ").append(overallBacktrackNumber);

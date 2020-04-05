@@ -1,26 +1,22 @@
 package main;
 
-import abstraction.ConstraintsNumberOrderSetter;
-import abstraction.DomainSizeOrderSetter;
-import abstraction.RandomDomainOrderSetter;
-import abstraction.TheSameDomainOrderSetter;
+import abstraction.*;
 import crossword.CrosswordProblem;
 import loaders.CrosswordProblemLoader;
 import loaders.SudokuProblemLoader;
-import solvers.MultiSolutionBacktrackingAlgorithm;
+import solvers.*;
 import sudoku.SudokuProblem;
 
 import java.util.Scanner;
 
 public class Main {
 
-    public static final String PROBLEM_NAME = "sudoku_42";
+    public static final String PROBLEM_NAME = "sudoku_11";
 
     public static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-
-        //loadProblem(PROBLEM_NAME);
+        //runProblem(PROBLEM_NAME);
         printWelcomeMessage();
         communicateWithUser();
     }
@@ -48,7 +44,7 @@ public class Main {
                 closeProgram = true;
             } else if (puzzleKind.equals("sudoku") || puzzleKind.equals("crossword")) {
                 System.out.println();
-                loadProblem(input);
+                runProblem(input);
             } else {
                 System.out.println("Incorrect input! Try again.");
             }
@@ -56,7 +52,7 @@ public class Main {
     }
 
 
-    private static void loadProblem(String problemName) {
+    private static void runProblem(String problemName) {
         String problemKind = problemName.split("_")[0];
         int problemNumber = Integer.parseInt(problemName.split("_")[1]);
         if (problemKind.equals("crossword")) {
@@ -69,15 +65,30 @@ public class Main {
     private static void crosswordRun(int problemNumber) {
         CrosswordProblem crosswordProblem = CrosswordProblemLoader.loadProblem(problemNumber);
         if (crosswordProblem != null) {
-            MultiSolutionBacktrackingAlgorithm<String> algorithm = new MultiSolutionBacktrackingAlgorithm<String>();
-            boolean solved = algorithm.solve(crosswordProblem,
-                    new ConstraintsNumberOrderSetter<>(),
-                    new TheSameDomainOrderSetter<>());
 
+            MultiSolutionForwardChecking<String> forwardAlgorithm = new MultiSolutionForwardChecking<>();
+            MultiSolutionForwardCheckingEachStepSortingVar<String> forwardAlgorithmWithSorting =
+                    new MultiSolutionForwardCheckingEachStepSortingVar<>();
+
+
+            boolean solved = forwardAlgorithm.solve(crosswordProblem,
+                    new DomainSizeVariableOrderSetter<>(),
+                    new TheSameDomainOrderSetter<>());
             if (!solved) {
                 System.out.println("Problem is not solved");
             }
-            crosswordProblem.printCrosswordProblem();
+            crosswordProblem.printProblem();
+            crosswordProblem.deleteAllSolutions();
+            crosswordProblem.resetVariablesValues();
+
+            solved = forwardAlgorithmWithSorting.solve(crosswordProblem,
+                    new FilteredDomainSizeVariableOrderSetter<>(),
+                    new TheSameDomainOrderSetter<>());
+            if (!solved) {
+                System.out.println("Problem is not solved");
+            }
+            crosswordProblem.printProblem();
+
         }
     }
 
@@ -85,15 +96,39 @@ public class Main {
         SudokuProblem sudokuProblem = SudokuProblemLoader.loadProblem(problemNumber);
 
         if (sudokuProblem != null) {
-            MultiSolutionBacktrackingAlgorithm<Integer> algorithm = new MultiSolutionBacktrackingAlgorithm<Integer>();
-            boolean solved = algorithm.solve(sudokuProblem,
-                    new DomainSizeOrderSetter<>(),
-                    new TheSameDomainOrderSetter<>());
 
+            MultiSolutionBacktrackingAlgorithm<Integer> backtrackingAlgorithm = new MultiSolutionBacktrackingAlgorithm<>();
+            MultiSolutionForwardChecking<Integer> forwardAlgorithm = new MultiSolutionForwardChecking<>();
+            MultiSolutionForwardCheckingEachStepSortingVar<Integer> forwardAlgorithmWithSorting =
+                    new MultiSolutionForwardCheckingEachStepSortingVar<>();
+
+            boolean solved = backtrackingAlgorithm.solve(sudokuProblem,
+                    new DomainSizeVariableOrderSetter<>(),
+                    new TheSameDomainOrderSetter<>());
             if (!solved) {
                 System.out.println("Problem is not solved");
             }
-            sudokuProblem.printCrosswordProblem();
+            sudokuProblem.printProblem();
+            sudokuProblem.deleteAllSolutions();
+            sudokuProblem.resetVariablesValues();
+
+            solved = forwardAlgorithm.solve(sudokuProblem,
+                    new DomainSizeVariableOrderSetter<>(),
+                    new TheSameDomainOrderSetter<>());
+            if (!solved) {
+                System.out.println("Problem is not solved");
+            }
+            sudokuProblem.printProblem();
+            sudokuProblem.deleteAllSolutions();
+            sudokuProblem.resetVariablesValues();
+
+            solved = forwardAlgorithmWithSorting.solve(sudokuProblem,
+                    new FilteredDomainSizeVariableOrderSetter<>(),
+                    new TheSameDomainOrderSetter<>());
+            if (!solved) {
+                System.out.println("Problem is not solved");
+            }
+            sudokuProblem.printProblem();
         }
     }
 }
